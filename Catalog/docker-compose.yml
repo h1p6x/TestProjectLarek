@@ -1,0 +1,18 @@
+services:
+    catalog:
+        container_name: catalog_microservice
+        image: catalog_microservice-service
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        restart: unless-stopped
+        ports:
+             - "7071:80"
+        networks:
+             - core
+        expose:
+             - "80"
+
+networks:
+  core:
+    external: true
